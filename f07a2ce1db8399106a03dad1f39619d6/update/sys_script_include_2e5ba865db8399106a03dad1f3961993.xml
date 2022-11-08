@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_run_book.AppGetDependencies</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>Retrieves information about the app's dependencies to other apps and required versions.</description>
+        <name>AppGetDependencies</name>
+        <script><![CDATA[function AppGetDependencies()
+{
+	return [
+		{
+			name: 'DevTools',
+			version: '1.46.0',
+			url: 'https://github.com/saschawildgrube/servicenow-devtools/',
+			website_url: 'https://www.wildgrube.com/servicenow-devtools'
+		}
+	];
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-08 14:02:53</sys_created_on>
+        <sys_id>2e5ba865db8399106a03dad1f3961993</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AppGetDependencies</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_script_include_2e5ba865db8399106a03dad1f3961993</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-08 14:02:53</sys_updated_on>
+    </sys_script_include>
+</record_update>
