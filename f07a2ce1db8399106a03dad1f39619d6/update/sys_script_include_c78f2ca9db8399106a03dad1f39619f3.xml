@@ -10,16 +10,26 @@
         <script><![CDATA[function HtmlRenderRunbook()
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
-	 var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
-
+	var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
+	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
+	var GetInstanceURL = x_snc_devtools.GetInstanceURL;
+	var HtmlRenderTable = x_snc_devtools.HtmlRenderTable;
+	var DocumentationAPI = x_snc_devtools.DocumentationAPI;
 	
 	var strHtml = '';
+	
+	if (IsActive() == false)
+	{
+		return HtmlRenderError('Runbook is turned off.');
+	}
 	
 	
 	// HEADER
 	strHtml += '<h1>Runbook</h1>';
 	
 	// INSTANCE INFORMATION
+	
+	strHtml += '<p>Instance: '+HtmlRenderLink(GetInstanceURL(),GetInstanceURL(),true)+'</p>';
 	
 	// TOC
 	
@@ -29,7 +39,8 @@
 	var grApp = new GlideRecord('sys_app');
 	grApp.orderBy('name');
 	grApp.query();
-	
+
+	/*
 	strHtml += '<table border="2"><tbody>';
 	
 	strHtml += '<tr>';
@@ -40,39 +51,78 @@
 		strHtml += '<th>Description</th>';
 		strHtml += '<th>Documentation</th>';
 	strHtml += '</tr>';
+*/
+
+	var aAppTable = [];
+	
+	var aHeaderRow = [];
+	aHeaderRow.push({ header: true, content: 'Name'} );
+	aHeaderRow.push({ header: true, content: 'Version'} );
+	aHeaderRow.push({ header: true, content: 'Scope'} );
+	aHeaderRow.push({ header: true, content: 'Maintainer'} );
+	aHeaderRow.push({ header: true, content: 'Description'} );
+	aHeaderRow.push({ header: true, content: 'Links'} );
+	
+	aAppTable.push(aHeaderRow);
 	
 	while (grApp.next())
 	{
+		var aRow = [];
+		/*
 		strHtml += '<tr>';
 		
 		strHtml += '<td>'+grApp.name+'</td>';
 		strHtml += '<td>'+grApp.version+'</td>';
 		strHtml += '<td>'+grApp.scope+'</td>';
+		*/
 		
-		var strMaintainer = grApp.x_snc_devtools_maintainer;
+		aRow.push(GetStringValue(grApp.name));
+		aRow.push(GetStringValue(grApp.version));
+		aRow.push(GetStringValue(grApp.scope));
+		
+		var strMaintainer = GetStringValue(grApp.x_snc_devtools_maintainer);
 		if (GetStringValue(grApp.x_snc_devtools_maintainer_email) != '')
 		{
 			strMaintainer += '<br/>' + HtmlRenderLink(grApp.x_snc_devtools_maintainer_email,grApp.x_snc_devtools_maintainer_email,true); 
 		}
-		strHtml += '<td>'+strMaintainer+'</td>';
 		
-		strHtml += '<td>' + grApp.short_description+'</td>';
+		aRow.push(strMaintainer);
+		//strHtml += '<td>'+strMaintainer+'</td>';
+
+		aRow.push(GetStringValue(grApp.short_description));
+		//strHtml += '<td>' + grApp.short_description+'</td>';
 		
-		var strDocumentation = '';
+		var strLinks = '';
 		var strDocUrl = GetStringValue(grApp.x_snc_devtools_documentation_url);
 		if (strDocUrl != '')
 		{
-			strDocumentation = HtmlRenderLink(strDocUrl,'Docs',true);
+			strLinks = HtmlRenderLink(strDocUrl,'Docs',true);
 		}
-		strHtml += '<td>'+strDocumentation+'</td>';
+		aRow.push(strLinks);
+		//strHtml += '<td>'+strDocumentation+'</td>';
 		
-		strHtml += '</tr>';
+		//strHtml += '</tr>';
+		
+		aAppTable.push(aRow);
 	}
 	
-	strHtml += '</tbody></table>';
+	//strHtml += '</tbody></table>';
 	
+	strHtml += HtmlRenderTable(aAppTable,'apptable','table.apptable, th.apptable, td.apptable { border: 1px solid; padding: 2px; vertical-align: top }');
+	
+	
+	var grApp = new GlideRecord('sys_app');
+	grApp.orderBy('name');
+	grApp.query();
 
-	
+	while (grApp.next())
+	{
+		strHtml += '<h3>'+grApp.name+'</h3>';
+		var docapi = new DocumentationAPI(grApp.sys_id);
+		
+		strHtml += docapi.RenderProperties();
+		
+	}
 	
 	return strHtml;
 }]]></script>
@@ -80,13 +130,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-08 14:47:42</sys_updated_on>
+        <sys_updated_on>2022-11-09 08:53:58</sys_updated_on>
     </sys_script_include>
 </record_update>
