@@ -75,6 +75,37 @@
 	
 	strHtml += HtmlRenderTable(aUserTable,'runbook');
 	
+	
+	// CREDENTIALS
+	strHtml += '<h2>Credentials</h2>'
+	
+	var grCredential = new GlideRecord('discovery_credentials');
+	grCredential.addQuery('active','=','true');
+	grCredential.orderBy('name');
+	grCredential.query();
+	if (grCredential.getRowCount() == 0)
+	{
+		strHtml += '<p>There are no active credentials.</p>';
+	}
+	var aTable = [];
+	var aHeaders = [];
+	aHeaders.push({ header: true, content: 'Name'} );
+	aHeaders.push({ header: true, content: 'Type'} );
+	aTable.push(aHeaders);
+	while (grCredential.next())
+	{
+		var aRow = [];
+		var strUrl = GetInstanceRecordURL('discovery_credentials',grCredential.sys_id);
+		var strLink = HtmlRenderLink(strUrl,grCredential.name,true);
+		aRow.push(strLink);
+		aRow.push(RenderValue(grCredential.type.getDisplayValue()));
+		aTable.push(aRow);
+	}
+	
+	strHtml += HtmlRenderTable(aTable,'runbook');	
+	
+	
+	
 	// APPS
 	strHtml += '<h2>Applications</h2>';
 	
@@ -82,18 +113,6 @@
 	grApp.orderBy('name');
 	grApp.query();
 
-	/*
-	strHtml += '<table border="2"><tbody>';
-	
-	strHtml += '<tr>';
-		strHtml += '<th>Name</th>';
-		strHtml += '<th>Version</th>';
-		strHtml += '<th>Scope</th>';
-		strHtml += '<th>Maintainer</th>';
-		strHtml += '<th>Description</th>';
-		strHtml += '<th>Documentation</th>';
-	strHtml += '</tr>';
-*/
 
 	var aAppTable = [];
 	
@@ -103,6 +122,7 @@
 	aHeaderRow.push({ header: true, content: 'Scope'} );
 	aHeaderRow.push({ header: true, content: 'Maintainer'} );
 	aHeaderRow.push({ header: true, content: 'Description'} );
+	aHeaderRow.push({ header: true, content: 'Menu'} );
 	aHeaderRow.push({ header: true, content: 'Links'} );
 	
 	aAppTable.push(aHeaderRow);
@@ -110,13 +130,6 @@
 	while (grApp.next())
 	{
 		var aRow = [];
-		/*
-		strHtml += '<tr>';
-		
-		strHtml += '<td>'+grApp.name+'</td>';
-		strHtml += '<td>'+grApp.version+'</td>';
-		strHtml += '<td>'+grApp.scope+'</td>';
-		*/
 		
 		aRow.push(GetStringValue(grApp.name));
 		aRow.push(GetStringValue(grApp.version));
@@ -129,17 +142,41 @@
 		}
 		
 		aRow.push(strMaintainer);
-		//strHtml += '<td>'+strMaintainer+'</td>';
 
 		aRow.push(GetStringValue(grApp.short_description));
-		//strHtml += '<td>' + grApp.short_description+'</td>';
+		
+		
+		var strMenu = '';
+		var grAppMenu = new GlideRecord('sys_app_application');
+		grAppMenu.addQuery('sys_scope','=',grApp.sys_id);
+		grAppMenu.orderBy('name');
+		grAppMenu.query();
+		while (grAppMenu.next());
+		{
+			if (strMenu != '')
+			{
+				strMenu += ', ';
+			}
+			strMenu += GetStringValue(grAppMenu.title);
+		}
+		aRow.push(strMenu);
+		
 		
 		var strLinks = '';
 		var strDocUrl = GetStringValue(grApp.x_snc_devtools_documentation_url);
 		if (strDocUrl != '')
 		{
-			strLinks = HtmlRenderLink(strDocUrl,'Docs',true);
+			strLinks += HtmlRenderLink(strDocUrl,'Docs',true);
 		}
+		var strRepoUrl = GetStringValue(grApp.x_snc_devtools_repo_url);
+		if (strRepoUrl != '')
+		{
+			if (strLink != '')
+			{
+				strLink += '&#160;|&#160;';
+			}
+			strLinks += HtmlRenderLink(strRepoUrl,'Repo',true);
+		}		
 		aRow.push(strLinks);
 		//strHtml += '<td>'+strDocumentation+'</td>';
 		
@@ -177,13 +214,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-10 11:12:58</sys_updated_on>
+        <sys_updated_on>2022-11-11 08:52:46</sys_updated_on>
     </sys_script_include>
 </record_update>
