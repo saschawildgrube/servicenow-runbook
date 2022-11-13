@@ -19,6 +19,34 @@
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
 	var GetInstanceRecordURL = x_snc_devtools.GetInstanceRecordURL;
+	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
+	var RenderRecordExecutionSchedule = x_snc_devtools.RenderRecordExecutionSchedule;
+	
+	
+	function RenderListItem(strItem, strURL, strText)
+	{
+		strURL = GetStringValue(strURL);
+		strText = GetStringValue(strText);
+		var strHtml = '';
+		strHtml += '<li>';
+		if (strURL != '')
+		{
+			strHtml += HtmlRenderLink(strURL,strItem,true);
+		}
+		else
+		{
+			strHtml += '<b>'+strItem +'</b>&#160;';
+		}
+		if (strText != '')
+		{
+			strHtml += '<p>'+strText+'</p>';
+		}
+		strHtml += '</li>';		
+		return strHtml;
+	}
+	
+	
+	
 	
 	var strHtml = '';
 	
@@ -103,6 +131,44 @@
 	}
 	
 	strHtml += HtmlRenderTable(aTable,'runbook');	
+	
+	
+	// SCHEDULED JOBS
+
+	strHtml += '<h2>Scheduled Jobs</h2>'
+
+	
+	var grSS = new GlideRecord('sysauto');
+	grSS.addQuery('sys_scope','=','global');
+	grSS.orderBy('name');
+	grSS.addActiveQuery();
+	grSS.query();
+
+	if (grSS.getRowCount() == 0)
+	{
+		strHtml += '<p>There are no active global scheduled jobs.</p>';
+	}
+	else
+	{
+		strHtml += '<ul>';
+		while (grSS.next())
+		{
+			var strName = grSS.getValue('name');
+			
+			var strRunAs = '';
+			if (GetStringValue(grSS.run_as))
+			{
+				strRunAs = ' as user ' + HtmlRenderLink(GetInstanceRecordPath('sys_user',grSS.run_as),grSS.run_as.getDisplayValue(),true);
+			}
+
+			strHtml += RenderListItem(
+				strName,
+				GetInstanceRecordPath('sysauto_script',grSS.sys_id),
+				RenderRecordExecutionSchedule(grSS) + strRunAs);
+		}
+		strHtml += '</ul>';
+	}
+
 	
 	
 	
@@ -197,14 +263,17 @@
 	while (grApp.next())
 	{
 		strHtml += '<h3>'+grApp.name+'</h3>';
+		strHtml += '<p>'+grApp.short_description+'</p>';
 		var docapi = new DocumentationAPI(grApp.sys_id);
 
 		strHtml += '<h4>Roles</h4>';
 		strHtml += docapi.RenderRoles();
-	
 		
 		strHtml += '<h4>System Properties</h4>';
 		strHtml += docapi.RenderProperties();
+
+		strHtml += '<h4>Scheduled Jobs</h4>';
+		strHtml += docapi.RenderScheduledJobs();	
 		
 	}
 	
@@ -214,13 +283,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-11 08:52:46</sys_updated_on>
+        <sys_updated_on>2022-11-13 21:34:51</sys_updated_on>
     </sys_script_include>
 </record_update>
