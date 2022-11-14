@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_run_book.Debug</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>Produces a log output in the application log using the DevTools Debug function.</description>
+        <name>Debug</name>
+        <script><![CDATA[function Debug(strText)
+{
+	x_snc_devtools.Debug('Runbook: '+gs.getUserName()+': '+strText);
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-08 14:02:52</sys_created_on>
+        <sys_id>ea5ba865db8399106a03dad1f396198d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Debug</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_script_include_ea5ba865db8399106a03dad1f396198d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-08 14:02:52</sys_updated_on>
+    </sys_script_include>
+</record_update>

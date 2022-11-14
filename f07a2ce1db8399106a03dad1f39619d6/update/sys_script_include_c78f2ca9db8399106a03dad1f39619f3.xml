@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_run_book.HtmlRenderRunbook</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Renders an operations runbook for the instance.</description>
+        <name>HtmlRenderRunbook</name>
+        <script><![CDATA[function HtmlRenderRunbook()
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
+	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
+	var GetInstanceURL = x_snc_devtools.GetInstanceURL;
+	var HtmlRenderTable = x_snc_devtools.HtmlRenderTable;
+	var HtmlRenderStyle = x_snc_devtools.HtmlRenderStyle;
+	var DocumentationAPI = x_snc_devtools.DocumentationAPI;
+	var RenderValue = x_snc_devtools.RenderValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var GetInstanceRecordURL = x_snc_devtools.GetInstanceRecordURL;
+	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
+	var RenderRecordExecutionSchedule = x_snc_devtools.RenderRecordExecutionSchedule;
+	
+	
+	function RenderListItem(strItem, strURL, strText)
+	{
+		strURL = GetStringValue(strURL);
+		strText = GetStringValue(strText);
+		var strHtml = '';
+		strHtml += '<li>';
+		if (strURL != '')
+		{
+			strHtml += HtmlRenderLink(strURL,strItem,true);
+		}
+		else
+		{
+			strHtml += '<b>'+strItem +'</b>&#160;';
+		}
+		if (strText != '')
+		{
+			strHtml += '<p>'+strText+'</p>';
+		}
+		strHtml += '</li>';		
+		return strHtml;
+	}
+	
+	
+	
+	
+	var strHtml = '';
+	
+	if (IsActive() == false)
+	{
+		return HtmlRenderError('Runbook is turned off.');
+	}
+	
+	
+	// STYLES
+	strHtml += HtmlRenderStyle('table.runbook, th.runbook, td.runbook { border: 1px solid; padding: 2px; vertical-align: top }');
+	
+	// HEADER
+	strHtml += '<h1>Runbook</h1>';
+	
+	// INSTANCE INFORMATION
+	
+	strHtml += '<p>Instance: '+HtmlRenderLink(GetInstanceURL(),GetInstanceURL(),true)+'</p>';
+	
+	// TOC
+	
+	
+	// TECHNICAL USERS
+	strHtml += '<h2>Technical Users</h2>'
+	
+	var grUser = new GlideRecord('sys_user');
+	grUser.addQuery('active','=','true');
+	var condition = grUser.addQuery('web_service_access_only','=',true);
+	condition.addOrCondition('internal_integration_user','=','true');
+	grUser.orderBy('user_name');
+	grUser.query();
+	if (grUser.getRowCount() == 0)
+	{
+		strHtml += '<p>There are no active technical users.</p>';
+	}
+	var aUserTable = [];
+	var aUserTableHeader = [];
+	aUserTableHeader.push({ header: true, content: 'User ID'} );
+	aUserTableHeader.push({ header: true, content: 'Name'} );
+	aUserTableHeader.push({ header: true, content: 'Integration'} );
+	aUserTableHeader.push({ header: true, content: 'Web Service Only'} );
+	aUserTable.push(aUserTableHeader);
+	while (grUser.next())
+	{
+		var aUserRow = [];
+		var strUserUrl = GetInstanceRecordURL('sys_user',grUser.sys_id);
+		var strUserLink = HtmlRenderLink(strUserUrl,grUser.user_name,true);
+		aUserRow.push(strUserLink);
+		aUserRow.push(GetStringValue(grUser.getDisplayValue()));
+		aUserRow.push(RenderValue(GetBoolValue(grUser.internal_integration_user)));
+		aUserRow.push(RenderValue(GetBoolValue(grUser.web_service_access_only)));
+		aUserTable.push(aUserRow);
+	}
+	
+	strHtml += HtmlRenderTable(aUserTable,'runbook');
+	
+	
+	// CREDENTIALS
+	strHtml += '<h2>Credentials</h2>'
+	
+	var grCredential = new GlideRecord('discovery_credentials');
+	grCredential.addQuery('active','=','true');
+	grCredential.orderBy('name');
+	grCredential.query();
+	if (grCredential.getRowCount() == 0)
+	{
+		strHtml += '<p>There are no active credentials.</p>';
+	}
+	var aTable = [];
+	var aHeaders = [];
+	aHeaders.push({ header: true, content: 'Name'} );
+	aHeaders.push({ header: true, content: 'Type'} );
+	aTable.push(aHeaders);
+	while (grCredential.next())
+	{
+		var aRow = [];
+		var strUrl = GetInstanceRecordURL('discovery_credentials',grCredential.sys_id);
+		var strLink = HtmlRenderLink(strUrl,grCredential.name,true);
+		aRow.push(strLink);
+		aRow.push(RenderValue(grCredential.type.getDisplayValue()));
+		aTable.push(aRow);
+	}
+	
+	strHtml += HtmlRenderTable(aTable,'runbook');	
+	
+	
+	// SCHEDULED JOBS
+
+	strHtml += '<h2>Scheduled Jobs</h2>'
+
+	
+	var grSS = new GlideRecord('sysauto');
+	grSS.addQuery('sys_scope','=','global');
+	grSS.orderBy('name');
+	grSS.addActiveQuery();
+	grSS.query();
+
+	if (grSS.getRowCount() == 0)
+	{
+		strHtml += '<p>There are no active global scheduled jobs.</p>';
+	}
+	else
+	{
+		strHtml += '<ul>';
+		while (grSS.next())
+		{
+			var strName = grSS.getValue('name');
+			
+			var strRunAs = '';
+			if (GetStringValue(grSS.run_as))
+			{
+				strRunAs = ' as user ' + HtmlRenderLink(GetInstanceRecordPath('sys_user',grSS.run_as),grSS.run_as.getDisplayValue(),true);
+			}
+
+			strHtml += RenderListItem(
+				strName,
+				GetInstanceRecordPath('sysauto_script',grSS.sys_id),
+				RenderRecordExecutionSchedule(grSS) + strRunAs);
+		}
+		strHtml += '</ul>';
+	}
+
+	
+	
+	
+	// APPS
+	strHtml += '<h2>Applications</h2>';
+	
+	var grApp = new GlideRecord('sys_app');
+	grApp.orderBy('name');
+	grApp.query();
+
+
+	var aAppTable = [];
+	
+	var aHeaderRow = [];
+	aHeaderRow.push({ header: true, content: 'Name'} );
+	aHeaderRow.push({ header: true, content: 'Version'} );
+	aHeaderRow.push({ header: true, content: 'Scope'} );
+	aHeaderRow.push({ header: true, content: 'Maintainer'} );
+	aHeaderRow.push({ header: true, content: 'Description'} );
+	aHeaderRow.push({ header: true, content: 'Menu'} );
+	aHeaderRow.push({ header: true, content: 'Links'} );
+	
+	aAppTable.push(aHeaderRow);
+	
+	while (grApp.next())
+	{
+		var aRow = [];
+		
+		aRow.push(GetStringValue(grApp.name));
+		aRow.push(GetStringValue(grApp.version));
+		aRow.push(GetStringValue(grApp.scope));
+		
+		var strMaintainer = GetStringValue(grApp.x_snc_devtools_maintainer);
+		if (GetStringValue(grApp.x_snc_devtools_maintainer_email) != '')
+		{
+			strMaintainer += '<br/>' + HtmlRenderLink(grApp.x_snc_devtools_maintainer_email,grApp.x_snc_devtools_maintainer_email,true); 
+		}
+		
+		aRow.push(strMaintainer);
+
+		aRow.push(GetStringValue(grApp.short_description));
+		
+		
+		var strMenu = '';
+		var grAppMenu = new GlideRecord('sys_app_application');
+		grAppMenu.addQuery('sys_scope','=',grApp.sys_id);
+		grAppMenu.orderBy('name');
+		grAppMenu.query();
+		while (grAppMenu.next());
+		{
+			if (strMenu != '')
+			{
+				strMenu += ', ';
+			}
+			strMenu += GetStringValue(grAppMenu.title);
+		}
+		aRow.push(strMenu);
+		
+		
+		var strLinks = '';
+		var strDocUrl = GetStringValue(grApp.x_snc_devtools_documentation_url);
+		if (strDocUrl != '')
+		{
+			strLinks += HtmlRenderLink(strDocUrl,'Docs',true);
+		}
+		var strRepoUrl = GetStringValue(grApp.x_snc_devtools_repo_url);
+		if (strRepoUrl != '')
+		{
+			if (strLinks != '')
+			{
+				strLinks += '&#160;|&#160;';
+			}
+			strLinks += HtmlRenderLink(strRepoUrl,'Repo',true);
+		}		
+		aRow.push(strLinks);
+		//strHtml += '<td>'+strDocumentation+'</td>';
+		
+		//strHtml += '</tr>';
+		
+		aAppTable.push(aRow);
+	}
+	
+	//strHtml += '</tbody></table>';
+	
+	strHtml += HtmlRenderTable(aAppTable,'runbook');
+	
+	
+	var grApp = new GlideRecord('sys_app');
+	grApp.orderBy('name');
+	grApp.query();
+
+	while (grApp.next())
+	{
+		strHtml += '<h3>'+grApp.name+'</h3>';
+		strHtml += '<p>'+grApp.short_description+'</p>';
+		var docapi = new DocumentationAPI(grApp.sys_id);
+
+		strHtml += '<h4>Roles</h4>';
+		strHtml += docapi.RenderRoles();
+		
+		strHtml += '<h4>System Properties</h4>';
+		strHtml += docapi.RenderProperties();
+
+		strHtml += '<h4>Scheduled Jobs</h4>';
+		strHtml += docapi.RenderScheduledJobs();	
+		
+	}
+	
+	return strHtml;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-08 14:30:40</sys_created_on>
+        <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
+        <sys_mod_count>45</sys_mod_count>
+        <sys_name>HtmlRenderRunbook</sys_name>
+        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-14 17:03:50</sys_updated_on>
+    </sys_script_include>
+</record_update>
