@@ -97,7 +97,8 @@
 	
 	<h3>1.1.0 - 2022-TODO</h3>
 	<ol>
-		<li>TODO: document changes here</li>
+		<li>Added test for function HtmlRenderRunbook().</li>
+		<li>Removed not required template code.</li>
 	</ol>	
 	
 	<h3>1.0.0 - 2022-11-14</h3>
@@ -112,13 +113,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:02:53</sys_created_on>
         <sys_id>be5ba865db8399106a03dad1f39619b9</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_ui_page_be5ba865db8399106a03dad1f39619b9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-14 17:25:13</sys_updated_on>
+        <sys_updated_on>2022-11-27 00:01:52</sys_updated_on>
     </sys_ui_page>
 </record_update>
