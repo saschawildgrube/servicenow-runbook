@@ -97,7 +97,7 @@
 	
 	<h3>1.1.0 - 2022-TODO</h3>
 	<ol>
-		<li>DevTools 1.51.0 is now required.</li>
+		<li>DevTools 1.57.0 is now required.</li>
 		<li>Added test for function HtmlRenderRunbook().</li>
 		<li>Removed not required template code.</li>
 		<li>Changed AppInstall() to not execute other AppInstall() functions.</li>
@@ -115,13 +115,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:02:53</sys_created_on>
         <sys_id>be5ba865db8399106a03dad1f39619b9</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_ui_page_be5ba865db8399106a03dad1f39619b9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-03 19:59:20</sys_updated_on>
+        <sys_updated_on>2023-03-08 12:16:23</sys_updated_on>
     </sys_ui_page>
 </record_update>
