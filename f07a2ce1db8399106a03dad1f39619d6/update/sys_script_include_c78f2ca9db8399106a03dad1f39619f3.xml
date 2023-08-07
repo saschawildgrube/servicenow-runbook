@@ -133,6 +133,39 @@
 	strHtml += HtmlRenderTable(aTable,'runbook');	
 	
 	
+	// CONNECTIONS
+	strHtml += '<h2>Connections</h2>'
+	
+	var grConnection = new GlideRecord('sys_connection');
+	grConnection.addQuery('active','=','true');
+	grConnection.orderBy('name');
+	grConnection.query();
+	if (grConnection.getRowCount() == 0)
+	{
+		strHtml += '<p>There are no active connections.</p>';
+	}
+	var aTable = [];
+	var aHeaders = [];
+	aHeaders.push({ header: true, content: 'Name'} );
+	aHeaders.push({ header: true, content: 'Type'} );
+	aHeaders.push({ header: true, content: 'Connection Alias'} );
+	aHeaders.push({ header: true, content: 'Credential'} );
+	aTable.push(aHeaders);
+	while (grConnection.next())
+	{
+		var aRow = [];
+		var strUrl = GetInstanceRecordURL('sys_connection',grConnection.sys_id);
+		var strLink = HtmlRenderLink(strUrl,grConnection.name,true);
+		aRow.push(strLink);
+		aRow.push(RenderValue(grConnection.sys_class_name.getDisplayValue()));
+		aRow.push(RenderValue(grConnection.connection_alias.getDisplayValue()));
+		aRow.push(RenderValue(grConnection.credential.getDisplayValue()));
+		aTable.push(aRow);
+	}
+	
+	strHtml += HtmlRenderTable(aTable,'runbook');		
+	
+	
 	// SCHEDULED JOBS
 
 	strHtml += '<h2>Scheduled Jobs</h2>'
@@ -262,9 +295,10 @@
 
 	while (grApp.next())
 	{
-		strHtml += '<h3>'+grApp.name+'</h3>';
-		strHtml += '<p>'+grApp.short_description+'</p>';
 		var docapi = new DocumentationAPI(grApp.sys_id);
+		
+		strHtml += '<h3>'+grApp.name+'</h3>';
+		strHtml += docapi.RenderDescription();
 
 		strHtml += '<h4>Roles</h4>';
 		strHtml += docapi.RenderRoles();
@@ -283,13 +317,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
-        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-14 17:03:50</sys_updated_on>
+        <sys_updated_on>2023-08-07 11:41:29</sys_updated_on>
     </sys_script_include>
 </record_update>

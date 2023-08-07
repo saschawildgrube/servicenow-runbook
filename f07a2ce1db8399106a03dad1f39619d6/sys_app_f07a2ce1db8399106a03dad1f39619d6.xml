@@ -20,7 +20,7 @@
         <runtime_access_tracking>permissive</runtime_access_tracking>
         <scope>x_snc_run_book</scope>
         <scoped_administration>false</scoped_administration>
-        <short_description>Renders an operations runbook for an instance</short_description>
+        <short_description>Renders an operation runbook for an instance</short_description>
         <source>x_snc_run_book</source>
         <store_correlation_id/>
         <store_url/>
@@ -29,19 +29,22 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 13:58:56</sys_created_on>
         <sys_id>f07a2ce1db8399106a03dad1f39619d6</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-09 09:06:26</sys_updated_on>
+        <sys_updated_on>2022-11-29 20:18:13</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <x_snc_devtools_documentation_url>https://www.wildgrube.com/servicenow-runbook</x_snc_devtools_documentation_url>
         <x_snc_devtools_maintainer>Sascha Wildgrube</x_snc_devtools_maintainer>
         <x_snc_devtools_maintainer_email>sascha.wildgrube@servicenow.com</x_snc_devtools_maintainer_email>
         <x_snc_devtools_repo_url>https://github.com/saschawildgrube/servicenow-runbook.git</x_snc_devtools_repo_url>
+        <x_snc_wildgrubelab_test/>
+        <x_snc_wildgrubelab_test2/>
     </sys_app>
+    <sys_translated_text action="delete_multiple" query="documentkey=f07a2ce1db8399106a03dad1f39619d6"/>
 </record_update>
