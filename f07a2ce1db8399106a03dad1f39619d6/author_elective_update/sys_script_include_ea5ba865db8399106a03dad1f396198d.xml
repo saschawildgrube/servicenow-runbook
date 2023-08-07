@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_run_book.Debug</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>Produces a log output in the application log using the DevTools Debug function.</description>
+        <name>Debug</name>
+        <script><![CDATA[function Debug(strText)
+{
+	x_snc_devtools.Debug('Runbook: '+gs.getUserName()+': '+strText);
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-08 14:02:52</sys_created_on>
+        <sys_id>ea5ba865db8399106a03dad1f396198d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Debug</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_script_include_ea5ba865db8399106a03dad1f396198d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-08 14:02:52</sys_updated_on>
+    </sys_script_include>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</application>
+        <file_path/>
+        <instance_id>84975bb2db8d919c4d2bac44d4961989</instance_id>
+        <instance_name>wildgrubetokyo</instance_name>
+        <name>sys_script_include_ea5ba865db8399106a03dad1f396198d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;
+    &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
+        &lt;access&gt;public&lt;/access&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;api_name&gt;x_snc_run_book.Debug&lt;/api_name&gt;
+        &lt;caller_access&gt;1&lt;/caller_access&gt;
+        &lt;client_callable&gt;false&lt;/client_callable&gt;
+        &lt;description&gt;Produces a log output in the application log using the DevTools Debug function.&lt;/description&gt;
+        &lt;name&gt;Debug&lt;/name&gt;
+        &lt;script&gt;&lt;![CDATA[function Debug(strText)
+{
+	x_snc_devtools.Debug('Runbook: '+gs.getUserName()+': '+strText);
+}]]&gt;&lt;/script&gt;
+        &lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2022-11-08 14:02:52&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;ea5ba865db8399106a03dad1f396198d&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Debug&lt;/sys_name&gt;
+        &lt;sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book"&gt;f07a2ce1db8399106a03dad1f39619d6&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Runbook WORK IN PROGRESS"&gt;f07a2ce1db8399106a03dad1f39619d6&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_script_include_ea5ba865db8399106a03dad1f396198d&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2022-11-08 14:02:52&lt;/sys_updated_on&gt;
+    &lt;/sys_script_include&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-1456502625</payload_hash>
+        <record_name>Debug</record_name>
+        <reverted_from/>
+        <source>d4f9c0eb974f5150a6a07767f053aff0</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-14 16:44:47</sys_created_on>
+        <sys_id>a4f944eb974f5150a6a07767f053afc1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184770770850000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-14 16:44:47</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>64f944eb984f5150352833d106ac01c1</update_guid>
+        <update_guid_history>64f944eb984f5150352833d106ac01c1:-1456502625</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-07 12:47:29</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>995f727ac6314edb9ae70280b4c13921</sys_id>
+        <sys_metadata>ea5ba865db8399106a03dad1f396198d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Debug</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_scope_delete display_value="">36da289bbea74481bf1d61c2f8f95999</sys_scope_delete>
+        <sys_update_name>sys_script_include_ea5ba865db8399106a03dad1f396198d</sys_update_name>
+        <sys_update_version display_value="sys_script_include_ea5ba865db8399106a03dad1f396198d">a4f944eb974f5150a6a07767f053afc1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-07 12:47:29</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

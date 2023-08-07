@@ -9,28 +9,19 @@
         <name>DevToolsGetLinkDirectory</name>
         <script><![CDATA[function DevToolsGetLinkDirectory(linkdirectory)
 {
-	/*
-	linkdirectory['Test Category'] =
-	[
-		{
-			table: 'x_snc_devtools_test'
-		}
-	];
-	*/
-
 	return linkdirectory;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:02:53</sys_created_on>
         <sys_id>2e5ba865db8399106a03dad1f39619a6</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>DevToolsGetLinkDirectory</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_2e5ba865db8399106a03dad1f39619a6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-26 23:57:26</sys_updated_on>
+        <sys_updated_on>2023-08-07 12:51:48</sys_updated_on>
     </sys_script_include>
 </record_update>
