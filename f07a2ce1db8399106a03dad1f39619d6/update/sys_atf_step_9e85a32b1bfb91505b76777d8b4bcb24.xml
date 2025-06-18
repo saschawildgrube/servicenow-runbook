@@ -2,33 +2,46 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Checks if all documented dependencies of the application "Runbook" are installed in a compatible version
+        <description>Checks if all documented dependencies of the application are installed in a compatible version
 </description>
         <display_name>DevTools - Check app dependencies</display_name>
         <inputs/>
         <mugshots_cache_json/>
         <notes/>
         <order>1</order>
-        <snapshot/>
         <step_config display_value="DevTools - Check app dependencies">e4b8e71e1bbb5d105b76777d8b4bcb35</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-22 15:31:24</sys_created_on>
         <sys_id>9e85a32b1bfb91505b76777d8b4bcb24</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>DevTools - Check app dependencies</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_atf_step_9e85a32b1bfb91505b76777d8b4bcb24</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-12-22 15:31:24</sys_updated_on>
+        <sys_updated_on>2025-06-18 13:03:29</sys_updated_on>
         <table/>
         <test display_value="Runbook - Installation">f65ba865db8399106a03dad1f39619c1</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=9e85a32b1bfb91505b76777d8b4bcb24"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>9e85a32b1bfb91505b76777d8b4bcb24</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-18 13:03:29</sys_created_on>
+        <sys_id>84e098d4939e2e10ae97b4aa6aba1001</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-18 13:03:29</sys_updated_on>
+        <value>f07a2ce1db8399106a03dad1f39619d6</value>
+        <variable display_value="Application">abfabdb693e1aa50959b7fda2bba10e4</variable>
+    </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
         <document_key>9e85a32b1bfb91505b76777d8b4bcb24</document_key>
