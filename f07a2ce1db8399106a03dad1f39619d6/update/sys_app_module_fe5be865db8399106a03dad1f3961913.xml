@@ -5,7 +5,7 @@
         <assessment/>
         <device_type/>
         <filter table="syslog_app_scope">sys_created_onONLast 30 minutes@javascript:gs.beginningOfLast30Minutes()@javascript:gs.endOfLast30Minutes()^sys_scope=f07a2ce1db8399106a03dad1f39619d6^EQ<item endquery="false" field="sys_created_on" goto="false" newquery="false" operator="ON" or="false" value="Last 30 minutes@javascript:gs.beginningOfLast30Minutes()@javascript:gs.endOfLast30Minutes()"/>
-            <item display_table="sys_scope" display_value="Runbook WORK IN PROGRESS" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="f07a2ce1db8399106a03dad1f39619d6"/>
+            <item display_table="sys_scope" display_value="Runbook" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="f07a2ce1db8399106a03dad1f39619d6"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <hint/>
@@ -31,9 +31,9 @@
         <sys_mod_count>2</sys_mod_count>
         <sys_name>Log</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_app_module_fe5be865db8399106a03dad1f3961913</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-08-07 12:52:42</sys_updated_on>
