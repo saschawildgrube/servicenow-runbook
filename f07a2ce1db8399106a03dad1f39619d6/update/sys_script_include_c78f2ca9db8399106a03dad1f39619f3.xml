@@ -23,7 +23,9 @@
 	var GetInstanceRecordUrl = x_snc_devtools.GetInstanceRecordUrl;
 	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
 	var RenderRecordExecutionSchedule = x_snc_devtools.RenderRecordExecutionSchedule;
-	
+	var GetInstancePipelineName = x_snc_devtools.GetInstancePipelineName;
+	var GetInstanceName = x_snc_devtools.GetInstanceName;
+
 	
 	function RenderListItem(strItem, strURL, strText)
 	{
@@ -65,8 +67,9 @@
 	strHtml += '<h1>Runbook</h1>';
 	
 	// INSTANCE INFORMATION
-	
-	strHtml += '<p>Instance: '+HtmlRenderLink(GetInstanceUrl(),GetInstanceUrl(),true)+'</p>';
+	strHtml += '<p>Instance URL: '+HtmlRenderLink(GetInstanceUrl(),GetInstanceUrl(),true)+'</p>';
+	strHtml += '<p>Instance Name: <b>' + GetInstanceName() + '</b></p>';
+	strHtml += '<p>Instance Pipeline Name: <b>' + GetInstancePipelineName() + '</b></p>';
 	
 	// TOC
 	
@@ -319,14 +322,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>53</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-06-18 13:07:27</sys_updated_on>
+        <sys_updated_on>2025-06-19 08:09:45</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>c78f2ca9db8399106a03dad1f39619f3</id>
