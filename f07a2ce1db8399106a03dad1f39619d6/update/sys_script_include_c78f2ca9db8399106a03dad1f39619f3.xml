@@ -6,22 +6,26 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Renders an operations runbook for the instance.</description>
+        <mobile_callable>false</mobile_callable>
         <name>HtmlRenderRunbook</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[function HtmlRenderRunbook()
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
 	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
-	var GetInstanceURL = x_snc_devtools.GetInstanceURL;
+	var GetInstanceUrl = x_snc_devtools.GetInstanceUrl;
 	var HtmlRenderTable = x_snc_devtools.HtmlRenderTable;
 	var HtmlRenderStyle = x_snc_devtools.HtmlRenderStyle;
 	var DocumentationAPI = x_snc_devtools.DocumentationAPI;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
-	var GetInstanceRecordURL = x_snc_devtools.GetInstanceRecordURL;
+	var GetInstanceRecordUrl = x_snc_devtools.GetInstanceRecordUrl;
 	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
 	var RenderRecordExecutionSchedule = x_snc_devtools.RenderRecordExecutionSchedule;
-	
+	var GetInstancePipelineName = x_snc_devtools.GetInstancePipelineName;
+	var GetInstanceName = x_snc_devtools.GetInstanceName;
+
 	
 	function RenderListItem(strItem, strURL, strText)
 	{
@@ -63,8 +67,9 @@
 	strHtml += '<h1>Runbook</h1>';
 	
 	// INSTANCE INFORMATION
-	
-	strHtml += '<p>Instance: '+HtmlRenderLink(GetInstanceURL(),GetInstanceURL(),true)+'</p>';
+	strHtml += '<p>Instance URL: '+HtmlRenderLink(GetInstanceUrl(),GetInstanceUrl(),true)+'</p>';
+	strHtml += '<p>Instance Name: <b>' + GetInstanceName() + '</b></p>';
+	strHtml += '<p>Instance Pipeline Name: <b>' + GetInstancePipelineName() + '</b></p>';
 	
 	// TOC
 	
@@ -92,7 +97,7 @@
 	while (grUser.next())
 	{
 		var aUserRow = [];
-		var strUserUrl = GetInstanceRecordURL('sys_user',grUser.sys_id);
+		var strUserUrl = GetInstanceRecordUrl('sys_user',grUser.sys_id);
 		var strUserLink = HtmlRenderLink(strUserUrl,grUser.user_name,true);
 		aUserRow.push(strUserLink);
 		aUserRow.push(GetStringValue(grUser.getDisplayValue()));
@@ -123,7 +128,7 @@
 	while (grCredential.next())
 	{
 		var aRow = [];
-		var strUrl = GetInstanceRecordURL('discovery_credentials',grCredential.sys_id);
+		var strUrl = GetInstanceRecordUrl('discovery_credentials',grCredential.sys_id);
 		var strLink = HtmlRenderLink(strUrl,grCredential.name,true);
 		aRow.push(strLink);
 		aRow.push(RenderValue(grCredential.type.getDisplayValue()));
@@ -154,7 +159,7 @@
 	while (grConnection.next())
 	{
 		var aRow = [];
-		var strUrl = GetInstanceRecordURL('sys_connection',grConnection.sys_id);
+		var strUrl = GetInstanceRecordUrl('sys_connection',grConnection.sys_id);
 		var strLink = HtmlRenderLink(strUrl,grConnection.name,true);
 		aRow.push(strLink);
 		aRow.push(RenderValue(grConnection.sys_class_name.getDisplayValue()));
@@ -317,13 +322,24 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
-        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
-        <sys_policy>read</sys_policy>
-        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-07 11:41:29</sys_updated_on>
+        <sys_updated_on>2025-06-19 08:25:13</sys_updated_on>
     </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>c78f2ca9db8399106a03dad1f39619f3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-18 13:07:27</sys_created_on>
+        <sys_id>46c11818939e2e10ae97b4aa6aba10b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-18 13:07:27</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

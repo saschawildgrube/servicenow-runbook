@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="DELETE">
+        <operation>execute</operation>
+        <source_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-08 16:09:44</sys_created_on>
+        <sys_id>78688525db0799106a03dad1f39619e6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetInstanceURL</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_scope_privilege_78688525db0799106a03dad1f39619e6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-08 16:09:44</sys_updated_on>
+        <target_name>GetInstanceURL</target_name>
+        <target_scope display_value="DevTools WORK IN PROGRESS">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
+        <target_type>sys_script_include</target_type>
+    </sys_scope_privilege>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</application>
+        <file_path/>
+        <instance_id>220092723b73421816e44a8aa4e45ab1</instance_id>
+        <instance_name>wildxanadu</instance_name>
+        <name>sys_scope_privilege_78688525db0799106a03dad1f39619e6</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>execute</operation>
+        <source_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-08 16:09:44</sys_created_on>
+        <sys_id>78688525db0799106a03dad1f39619e6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetInstanceURL</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_scope_privilege_78688525db0799106a03dad1f39619e6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-08 16:09:44</sys_updated_on>
+        <target_name>GetInstanceURL</target_name>
+        <target_scope display_value="DevTools WORK IN PROGRESS">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
+        <target_type>sys_script_include</target_type>
+    </sys_scope_privilege>
+</record_update>]]></payload>
+        <payload_hash>-1667972985</payload_hash>
+        <record_name>GetInstanceURL</record_name>
+        <reverted_from/>
+        <source>95a2505e939a1210ae97b4aa6aba1018</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-07 22:07:57</sys_created_on>
+        <sys_id>c2a2505e939a1210ae97b4aa6aba10d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>193a32a49b30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-07 22:07:57</sys_updated_on>
+        <type>Cross scope privilege</type>
+        <update_guid>82a2505e1d9a1210fa6f636a1ef7d1d6</update_guid>
+        <update_guid_history>82a2505e1d9a1210fa6f636a1ef7d1d6:-1667972985</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-18 13:09:38</sys_created_on>
+        <sys_db_object display_value="" name="sys_scope_privilege">sys_scope_privilege</sys_db_object>
+        <sys_id>060fc10f688547bd97f387c7d5b530f9</sys_id>
+        <sys_metadata>78688525db0799106a03dad1f39619e6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetInstanceURL</sys_name>
+        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_scope_delete display_value="">36da289bbea74481bf1d61c2f8f95999</sys_scope_delete>
+        <sys_update_name>sys_scope_privilege_78688525db0799106a03dad1f39619e6</sys_update_name>
+        <sys_update_version display_value="sys_scope_privilege_78688525db0799106a03dad1f39619e6">c2a2505e939a1210ae97b4aa6aba10d6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-18 13:09:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
     <sys_scope_privilege action="INSERT_OR_UPDATE">
-        <operation>execute</operation>
+        <operation>read</operation>
         <source_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</source_scope>
         <status>allowed</status>
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2022-11-10 11:00:32</sys_created_on>
-        <sys_id>f6c45e861bcb99105b76777d8b4bcb77</sys_id>
+        <sys_created_on>2025-06-18 13:09:53</sys_created_on>
+        <sys_id>bd525458939e2e10ae97b4aa6aba10db</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>RenderValue</sys_name>
+        <sys_name>sys_connection</sys_name>
         <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
-        <sys_update_name>sys_scope_privilege_f6c45e861bcb99105b76777d8b4bcb77</sys_update_name>
+        <sys_update_name>sys_scope_privilege_bd525458939e2e10ae97b4aa6aba10db</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-10 11:00:32</sys_updated_on>
-        <target_name>RenderValue</target_name>
-        <target_scope display_value="DevTools WORK IN PROGRESS">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
-        <target_type>sys_script_include</target_type>
+        <sys_updated_on>2025-06-18 13:09:53</sys_updated_on>
+        <target_name>sys_connection</target_name>
+        <target_scope display_value="Omni-Experience Standard Feature Set">53b1b0e79761011018b2fa98c253afcc</target_scope>
+        <target_type>sys_db_object</target_type>
     </sys_scope_privilege>
 </record_update>
