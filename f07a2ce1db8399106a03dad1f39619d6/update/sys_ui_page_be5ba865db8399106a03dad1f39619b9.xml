@@ -49,7 +49,7 @@
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsAppInstall();
 		]</g2:no_escape>		
-		<li>Assign the x_snc_run_book.viewer role to user that should have access to the runbook.</li>
+		<li>Assign the x_snc_run_book.viewer role to users that should have access to the runbook.</li>
 	</ol>
 
 	
@@ -110,14 +110,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:02:53</sys_created_on>
         <sys_id>be5ba865db8399106a03dad1f39619b9</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_ui_page_be5ba865db8399106a03dad1f39619b9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-06-19 08:14:19</sys_updated_on>
+        <sys_updated_on>2025-06-19 08:16:09</sys_updated_on>
     </sys_ui_page>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>be5ba865db8399106a03dad1f39619b9</id>
