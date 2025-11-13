@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-13 19:10:38</sys_created_on>
+        <sys_id>a130b3772b4936109083fe395e91bf0c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sys_connection</sys_name>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_update_name>sys_scope_privilege_a130b3772b4936109083fe395e91bf0c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-13 19:10:38</sys_updated_on>
+        <target_name>sys_connection</target_name>
+        <target_scope display_value="Knowledge Graph">a491b57f9f0b0210a1daf697790a1c9e</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>
