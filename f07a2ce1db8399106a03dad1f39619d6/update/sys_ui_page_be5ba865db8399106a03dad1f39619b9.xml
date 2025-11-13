@@ -10,7 +10,7 @@
 <div style="padding-left: 20px;">
 <span style="visibility: hidden;">_CUT_HERE_</span>
 	<g2:no_escape>$[
-		var docapi = new x_snc_devtools.DocumentationAPI('f07a2ce1db8399106a03dad1f39619d6');
+		var docapi = new x_snc_devtools.DocumentationAPI('x_snc_run_book');
 		docapi.RenderHeader();
 	]</g2:no_escape>
 	
@@ -68,8 +68,8 @@
 	<h3>Dependencies</h3>
 	<g2:no_escape>$[docapi.RenderDependencies()]</g2:no_escape>		
 
-	<h3>Technical Debts</h3>
-	<g2:no_escape>$[docapi.RenderTechnicalDebts()]</g2:no_escape>	
+	<h3>Technical Debt</h3>
+	<g2:no_escape>$[docapi.RenderTechnicalDebt()]</g2:no_escape>	
 
 
 	<h2>License</h2>
@@ -81,6 +81,7 @@
 	<h3>1.3.0 - TODO</h3>
 	<ol>
 		<li>DevTools 1.132.0 is now required.</li>
+		<li>Added ACLs to UI pages.</li>
 	</ol>
 
 
@@ -116,14 +117,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:02:53</sys_created_on>
         <sys_id>be5ba865db8399106a03dad1f39619b9</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_ui_page_be5ba865db8399106a03dad1f39619b9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-21 11:28:31</sys_updated_on>
+        <sys_updated_on>2025-11-13 19:08:51</sys_updated_on>
     </sys_ui_page>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>be5ba865db8399106a03dad1f39619b9</id>
