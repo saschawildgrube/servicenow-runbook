@@ -6,9 +6,9 @@
         <sys_id>bc7febf32b4936109083fe395e91bffc</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>.x_snc_run_book.viewer</sys_name>
-        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_security_acl display_value="x_snc_run_book_runbook">ab5fa7f32b4936109083fe395e91bf6b</sys_security_acl>
         <sys_update_name>sys_security_acl_role_bc7febf32b4936109083fe395e91bffc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
