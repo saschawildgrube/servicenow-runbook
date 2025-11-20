@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
     <sys_scope_privilege action="INSERT_OR_UPDATE">
         <operation>read</operation>
-        <source_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</source_scope>
+        <source_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</source_scope>
         <status>allowed</status>
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -9,9 +9,9 @@
         <sys_id>a93073772b4936109083fe395e91bfeb</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>discovery_credentials</sys_name>
-        <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
+        <sys_package display_value="Runbook WORK IN PROGRESS" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
+        <sys_scope display_value="Runbook WORK IN PROGRESS">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_scope_privilege_a93073772b4936109083fe395e91bfeb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2025-11-13 19:10:38</sys_updated_on>
