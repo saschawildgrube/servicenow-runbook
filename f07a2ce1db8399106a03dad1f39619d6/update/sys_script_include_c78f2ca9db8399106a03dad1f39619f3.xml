@@ -21,7 +21,7 @@
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
 	var GetInstanceRecordUrl = x_snc_devtools.GetInstanceRecordUrl;
-	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
+	var GetRecordPath = x_snc_devtools.GetRecordPath;
 	var RenderRecordExecutionSchedule = x_snc_devtools.RenderRecordExecutionSchedule;
 	var GetInstancePipelineName = x_snc_devtools.GetInstancePipelineName;
 	var GetInstanceName = x_snc_devtools.GetInstanceName;
@@ -72,10 +72,11 @@
 	strHtml += '<p>Instance Pipeline Name: <b>' + GetInstancePipelineName() + '</b></p>';
 	
 	// TOC
-	
-	
+	strHtml += '<h2>Table of Contents</h2>';
+	strHtml += x_snc_devtools.HtmlRenderTableOfContents();	
+		
 	// TECHNICAL USERS
-	strHtml += '<h2>Technical Users</h2>'
+	strHtml += '<h2>Technical Users</h2>';
 	
 	var grUser = new GlideRecord('sys_user');
 	grUser.addQuery('active','=','true');
@@ -196,12 +197,12 @@
 			var strRunAs = '';
 			if (GetStringValue(grSS.run_as))
 			{
-				strRunAs = ' as user ' + HtmlRenderLink(GetInstanceRecordPath('sys_user',grSS.run_as),grSS.run_as.getDisplayValue(),true);
+				strRunAs = ' as user ' + HtmlRenderLink(GetRecordPath('sys_user',grSS.run_as),grSS.run_as.getDisplayValue(),true);
 			}
 
 			strHtml += RenderListItem(
 				strName,
-				GetInstanceRecordPath('sysauto_script',grSS.sys_id),
+				GetRecordPath('sysauto_script',grSS.sys_id),
 				RenderRecordExecutionSchedule(grSS) + strRunAs);
 		}
 		strHtml += '</ul>';
@@ -211,7 +212,7 @@
 	
 	
 	// APPS
-	strHtml += '<h2>Applications</h2>';
+	strHtml += '<h2 toc-ignore-children="true">Applications</h2>';
 	
 	var grApp = new GlideRecord('sys_app');
 	grApp.orderBy('name');
@@ -322,14 +323,15 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-08 14:30:40</sys_created_on>
         <sys_id>c78f2ca9db8399106a03dad1f39619f3</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>HtmlRenderRunbook</sys_name>
         <sys_package display_value="Runbook" source="x_snc_run_book">f07a2ce1db8399106a03dad1f39619d6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Runbook">f07a2ce1db8399106a03dad1f39619d6</sys_scope>
         <sys_update_name>sys_script_include_c78f2ca9db8399106a03dad1f39619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-06-19 08:25:13</sys_updated_on>
+        <sys_updated_on>2025-11-20 11:35:51</sys_updated_on>
+        <x_snc_devtools_sys_ui_script/>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>c78f2ca9db8399106a03dad1f39619f3</id>
